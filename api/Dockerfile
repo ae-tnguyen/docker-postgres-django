@@ -1,7 +1,7 @@
 FROM python:3.7-alpine
 
 # set work directory
-WORKDIR /usr/src/app
+WORKDIR /usr/app/
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -18,8 +18,8 @@ RUN apk update \
 
 # install dependencies
 RUN pip install --upgrade pip
-COPY ./requirements.txt /usr/src/app/requirements.txt
+COPY ./requirements.txt /usr/app/requirements.txt
 RUN pip install -r ./requirements.txt
 
 # copy project
-COPY . /usr/src/app/
+COPY . /usr/app/
